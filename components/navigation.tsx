@@ -34,7 +34,11 @@ export function Navigation() {
               <h1 className="text-primary-gradient font-bold text-xl ">
                 Emmanuel Baptist Church
               </h1>
-              <p className="mb-0.5 text-xs text-muted-foreground">Foundation in Christ</p>
+              {/* <p className="mb-0.5 text-xs text-muted-foreground">Foundation in Christ</p> */}
+              <p className="text-xs text-muted-foreground mt-1 hidden sm:block">
+                Foundation in Christ
+              </p>
+
                   </div>
             </div>
 

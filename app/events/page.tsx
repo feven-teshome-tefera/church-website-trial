@@ -3,7 +3,8 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Calendar, MapPin, Clock } from "lucide-react"
-import { supabase } from "@/lib/supabase-client"
+import { getSupabaseClient } from "@/lib/supabase-client"
+
 import { useEffect, useState } from "react"
 
 interface Event {
@@ -22,6 +23,7 @@ export default function EventsPage() {
   const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([])
 
   const fetchEvents = async () => {
+    const supabase = getSupabaseClient();
     const { data, error } = await supabase
       .from('events')
       .select('*')

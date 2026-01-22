@@ -3,7 +3,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Link from "next/dist/client/link"
 // ministries
-import { supabase } from "@/lib/supabase-client";
+import { getSupabaseClient } from "@/lib/supabase-client";
 import { useEffect, useState } from "react";
 
 interface ministries {
@@ -16,6 +16,7 @@ interface ministries {
 export default function MinistriesPage() {
   const [newministries, setNewministries] = useState<ministries[]>([]);
   const fetchministries = async () => {
+    const supabase = getSupabaseClient();
     const{data, error} = await supabase
     .from('ministries')
     .select('*');
